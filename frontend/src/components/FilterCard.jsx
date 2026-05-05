@@ -7,6 +7,7 @@ import { IoCheckmarkDone } from "react-icons/io5";
 import { IoIosPeople } from "react-icons/io";
 import { GoProjectRoadmap } from "react-icons/go";
 import { MdDateRange } from "react-icons/md";
+import { MdDelete } from "react-icons/md";
 export default function FilterCard({ filteredTask, taskData }) {
     const priorityColor = {
         low: "bg-green-100",
@@ -26,16 +27,21 @@ export default function FilterCard({ filteredTask, taskData }) {
         done: "bg-green-500 text-white",
     };
     return (<>
-        <div className="mt-5 p-4 rounded-xl text-sm grid grid-cols-3 gap-5">
-            {filteredTask.map((task) => {
+        <div className="mt-5 p-4 rounded-xl text-sm grid md:grid-cols-3 gap-5">
+            {filteredTask.length === 0 ? (
+                <div className="col-span-full text-center text-gray-500 py-10">
+                    No tasks found 🥲
+                </div>
+            ) : filteredTask.map((task) => {
                 const StatusIcon = taskStatus[task.status];
                 return (
                     <div key={task.id} className="border p-4 rounded-xl mb-5  ">
                         <div className="mb-2">
-                            <div className="flex gap-5">
+                            <div className="flex gap-5 items-center">
                                 <div className="font-bold">{task.title}</div>
                                 <div>{taskData.projects.find(p => p.id === task.projectId)?.name}</div>
                                 <div className={`border rounded-xl px-4 ${priorityColor[task.priority]}`} >{task.priority}</div>
+                                <MdDelete className="text-red-500 rounded-[100%] hover:text-white hover:bg-gray-500 text-xl ml-auto cursor-pointer" />
                             </div>
                             <p>{task.description}</p>
                         </div>

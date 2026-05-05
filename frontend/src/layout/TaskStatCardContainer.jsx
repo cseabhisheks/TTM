@@ -6,45 +6,57 @@ import { GiFrozenOrb } from "react-icons/gi";
 import { IoCheckmarkDone } from "react-icons/io5";
 import { IoIosPeople } from "react-icons/io";
 import { GoProjectRoadmap } from "react-icons/go";
+import { useTasks } from "../context/TaskContext";
 export default function TaskStatCardContainer() {
+    const { taskData } = useTasks();
+
+    const stats = {
+        totalProjects: taskData.projects.length,
+        totalTasks: taskData.tasks.length,
+        todo: taskData.tasks.filter(t => t.status === "todo").length,
+        inprogress: taskData.tasks.filter(t => t.status === "inprogress").length,
+        freeze: taskData.tasks.filter(t => t.status === "freeze").length,
+        done: taskData.tasks.filter(t => t.status === "done").length,
+    };
+
     const taskStatData = [
         {
-            count: 6,
+            count: stats.totalProjects,
             title: 'Total Projects',
-            Icon: GoProjectRoadmap ,
+            Icon: GoProjectRoadmap,
             color: 'brown'
         },
         {
-            count: 6,
-            title: 'total tasks',
+            count: stats.totalTasks,
+            title: 'Total Tasks',
             Icon: GoTasklist,
             color: 'gray'
         },
         {
-            count: 6,
-            title: 'to Do',
+            count: stats.todo,
+            title: 'To Do',
             Icon: FaRegWindowRestore,
             color: 'red'
         },
         {
-            count: 6,
+            count: stats.inprogress,
             title: 'In Progress',
             Icon: RiProgress1Line,
             color: 'green'
         },
         {
-            count: 6,
+            count: stats.freeze,
             title: 'Frozen',
             Icon: GiFrozenOrb,
             color: 'gold'
         },
         {
-            count: 6,
+            count: stats.done,
             title: 'Done',
             Icon: IoCheckmarkDone,
             color: 'blue'
         },
-    ]
+    ];
 
     return (<>
         <div className="p-5">

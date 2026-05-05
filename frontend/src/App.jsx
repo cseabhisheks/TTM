@@ -1,8 +1,12 @@
 import TaskStatCardContainer from "./layout/TaskStatCardContainer"
 import FilterCardContainer from "./layout/FilterCardContainer"
+import TaskProvider from "./context/TaskContext"
 export default function App() {
   return (<>
-    <TaskStatCardContainer />
-    <FilterCardContainer />
+    <TaskProvider>
+      <TaskStatCardContainer />
+      <FilterCardContainer />
+    </TaskProvider>
+
   </>)
 }
