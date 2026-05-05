@@ -70,7 +70,7 @@ export default function TaskStatCardContainer() {
                 </div>
             </div>
             {/* rendering data using taskstatcard */}
-            <div className="grid sm:grid-cols-3 md:grid-cols-5 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
                 {taskStatData.map((item, idx) => (
                     <span key={idx} > <TaskStatCard data={item} /></span>
                 ))}

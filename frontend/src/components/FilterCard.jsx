@@ -38,26 +38,28 @@ export default function FilterCard({ filteredTask, taskData }) {
                     <div key={task.id} className="border p-4 rounded-xl mb-5  ">
                         <div className="mb-2">
                             <div className="flex gap-5 items-center">
-                                <div className="font-bold">{task.title}</div>
-                                <div>{taskData.projects.find(p => p.id === task.projectId)?.name}</div>
+                                <div>
+                                    <div className="font-bold">{task.title}</div>
+                                    <div className="text-blue-500">{taskData.projects.find(p => p.id === task.projectId)?.name}</div>
+                                </div>
                                 <div className={`border rounded-xl px-4 ${priorityColor[task.priority]}`} >{task.priority}</div>
                                 <MdDelete className="text-red-500 rounded-[100%] hover:text-white hover:bg-gray-500 text-xl ml-auto cursor-pointer" />
                             </div>
                             <p>{task.description}</p>
                         </div>
 
-                        <div className="flex items-center justify-between">
+                        <div className="flex items-center justify-between text-xs">
 
-                            <div className="flex items-center gap-2 border rounded-xl px-4 py-1">
+                            <div className="flex items-center gap-2 border rounded-xl px-2 md:px-4 py-1">
                                 <FaUser className="text-sm" />
                                 <div>{task.assignee}</div>
                             </div>
-                            <div className={`flex items-center gap-2 border rounded-xl px-4 py-1 ${statusColor[task.status]}`}>
+                            <div className={`flex items-center gap-2 border rounded-xl px-2 md:px-4 py-1 ${statusColor[task.status]}`}>
                                 <StatusIcon className={`text-lg`} />
                                 <div>{task.status}</div>
                             </div>
 
-                            <div className="flex items-center gap-2 border rounded-xl px-4 py-1 text-white bg-red-400">
+                            <div className="flex items-center gap-2 border rounded-xl px-2 md:px-4 py-1 text-white bg-red-400">
                                 <MdDateRange className="text-xl" />
                                 <div> {task.deadline} </div>
                             </div>
