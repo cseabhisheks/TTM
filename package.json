@@ -1,0 +1,8 @@
+{
+  "name": "fullstack-app",
+  "private": true,
+  "scripts": {
+    "build": "cd frontend && npm install && npm run build",
+    "start": "cd backend && npm install && node index.js"
+  }
+}
