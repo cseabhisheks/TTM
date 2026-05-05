@@ -9,7 +9,7 @@ export default function Navbar() {
                 <a href="">team member</a>
             </div>
 
-            <div className="text-sm bg-gray-400 font-bold flex items-center justify-center border w-8 h-8 rounded-[100%]" >A</div>
+            <div className="text-sm ml-auto bg-gray-400 font-bold flex items-center justify-center border w-8 h-8 rounded-[100%]" >A</div>
         </nav>
     );
 }

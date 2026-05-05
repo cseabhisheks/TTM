@@ -35,7 +35,7 @@ export default function FilterCard({ filteredTask, taskData }) {
             ) : filteredTask.map((task) => {
                 const StatusIcon = taskStatus[task.status];
                 return (
-                    <div key={task.id} className="border p-4 rounded-xl mb-5  ">
+                    <div key={task.id} className="border p-4 rounded-xl md:mb-5  ">
                         <div className="mb-2">
                             <div className="flex gap-5 items-center">
                                 <div>

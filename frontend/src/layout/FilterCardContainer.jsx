@@ -28,7 +28,7 @@ export default function FilterCardContainer() {
     return (<>
         <div className="capitalize m-4 p-4 border-2 rounded-xl bg-orange-300">
             {/* title and logo */}
-            <div className="mb-4 flex gap-2 items-center">
+            <div className="md:mb-4 flex gap-2 items-center">
                 <CiFilter className="text-2xl" />
                 <div className=" font-bold text-xl">filters</div>
             </div>
@@ -38,7 +38,7 @@ export default function FilterCardContainer() {
                 {/* assignee and project sections */}
                 <div className="grid md:grid-cols-2">
                     {/* projects */}
-                    <div className="rounded-xl p-4">
+                    <div className="rounded-xl md:p-4">
                         <div className="mb-2">Projects</div>
                         <select className="border-2 bg-gray-300 w-full rounded-xl px-4 py-1" name="projects" id="" value={filters.projects} onChange={handleChnage}>
                             <option value="all">All</option>
@@ -48,7 +48,7 @@ export default function FilterCardContainer() {
                         </select>
                     </div>
                     {/* assignee */}
-                    <div className="rounded-xl p-4">
+                    <div className="rounded-xl md:p-4">
                         <div className="mb-2">Assignee</div>
                         <select className="border-2 bg-gray-300 w-full rounded-xl px-4 py-1" name="assignee" id="" value={filters.assignee} onChange={handleChnage}>
                             <option value="all">All</option>
@@ -60,7 +60,7 @@ export default function FilterCardContainer() {
                 </div>
 
                 {/* status */}
-                <div className=" rounded-xl p-4">
+                <div className=" rounded-xl md:p-4">
                     <div className="mb-2">status</div>
                     <div className="flex gap-4 flex-wrap">
                         {filterButton.map((items, idx) => (

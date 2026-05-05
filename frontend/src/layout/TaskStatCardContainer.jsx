@@ -62,7 +62,7 @@ export default function TaskStatCardContainer() {
         <div className="p-5">
             <div className="capitalize mb-4">
                 <div className="flex items-center gap-4">
-                    <IoIosPeople className="text-5xl md:text-7xl" />
+                    <IoIosPeople className="text-5xl md:text-7xl text-orange-700" />
                     <span className="text-xl md:text-2xl font-bold">team task manager</span>
                 </div>
                 <div className="text-sm text-gray-500">
