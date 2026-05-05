@@ -1,9 +1,9 @@
 import { CiFilter } from "react-icons/ci";
 import { FaUser } from "react-icons/fa";
 import { useState } from "react";
-import { applyFilters } from "./filterService";
+import { applyFilters } from "../utilities/filterService";
 import FilterCard from "../components/FilterCard";
-export default function Filter() {
+export default function FilterCardContainer() {
     const filterButton = ["all", "to do", "in progress", "done", "freeze"]
 
     // actual data
