@@ -9,7 +9,7 @@ export default function TaskStatCard({ data }) {
             <span style={{color:color}}>
                 <div className="font-bold "
                 >{count}</div>
-                <div >{title}</div>
+                <div className="text-xs">{title}</div>
             </span>
         </div>
     </>)

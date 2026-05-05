@@ -1,6 +1,8 @@
 import TaskStatCardContainer from "./layout/TaskStatCardContainer"
-export default function App(){
-  return(<>
-<TaskStatCardContainer/>
+import Filter from "./utilities/Filter"
+export default function App() {
+  return (<>
+    <TaskStatCardContainer />
+    <Filter />
   </>)
 }
