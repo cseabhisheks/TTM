@@ -1,9 +1,10 @@
 import { CiFilter } from "react-icons/ci";
 import { FaUser } from "react-icons/fa";
 import { useState } from "react";
+import { applyFilters } from "./filterService";
 import FilterCard from "../components/FilterCard";
 export default function Filter() {
-    const filterButton = ["all", "to do", "in progress", "done", "freeze", "priority"]
+    const filterButton = ["all", "to do", "in progress", "done", "freeze"]
 
     // actual data
     const taskData = {
@@ -142,12 +143,11 @@ export default function Filter() {
                 projectId: 3,
                 assignee: "Priya",
                 status: "freeze",
-                priority: 'low',
+                priority: 'high',
                 deadline: "2026-05-20"
             }
         ]
     };
-    
     // filter data
     const [filters, setFilters] = useState({
         projects: 'all',
@@ -162,21 +162,10 @@ export default function Filter() {
             ...prev, [name]: value
         }))
     }
-    // filter logic
-    const filteredTask = taskData.tasks.filter((task) => {
-        return (
-            // projects filtering
-            (filters.projects === "all" || task.projectId === Number(filters.projects))
-            &&
-            (filters.assignee === "all" || task.assignee === filters.assignee)
-            &&
-            (filters.status === "all" || task.status === filters.status)
-        )
 
-    })
-
+    const filteredTask = applyFilters(taskData.tasks, filters)
     return (<>
-        <div className="capitalize m-4 p-4 border-2 rounded-xl">
+        <div className="capitalize m-4 p-4 border-2 rounded-xl bg-orange-300">
             {/* title and logo */}
             <div className="mb-4 flex gap-2 items-center">
                 <CiFilter className="text-2xl" />
@@ -214,7 +203,9 @@ export default function Filter() {
                     <div className="mb-2">status</div>
                     <div className="flex gap-4 flex-wrap">
                         {filterButton.map((items, idx) => (
-                            <button key={idx} className="capitalize text-sm bg-gray-200 border px-4 py-1 rounded-xl">{items}</button>
+                            <button key={idx} onClick={() =>
+                                setFilters({ ...filters, status: items === "all" ? "all" : items.replace(" ", "") })
+                            } className="capitalize text-sm bg-gray-200 border px-4 py-1 rounded-xl">{items}</button>
                         ))}
                     </div>
                 </div>
